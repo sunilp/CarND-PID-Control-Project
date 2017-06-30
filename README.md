@@ -21,7 +21,13 @@ This component can compensate for a changing CTE, thus inhibit more rapid change
 
 ####  how the final hyperparameters (P, I, D coefficients) was choosen
 
-Manually tuned the paprameters, with hit and trial for each,
+Manually tuned the parameters, with trial and error, adjusting each parameter one by one,
+I set the Kd also to start with zero and increase 0.1 at a time, but around 1, it was able to take turn on the curve road,
+and starts oscillating more and sometime out of track with higher than 1.
+The Ki component, i start with 0 and tried to increase slowly by 0.1 , but increasing in Ki drives the car away from the center on the curve track, like near the bridge.
+Also, as this is simulation and can be assumed that the drift in streeing would be zero or minimum, putting integral gain to zero, helps in not steering too much and follow or come back to expected trajectory.
+
+It might not be the perfect solution, but these values helps the car moving in velocity around 30, for more velocity, better tuning or basically twiddling might be a better approach.
 
 the final parameter was 0.3,0.0,1 for Kp , Ki and Kd
 
