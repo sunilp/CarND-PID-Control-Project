@@ -3,6 +3,32 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+
+## Reflection
+
+#### Effect of the P, I, D component of the PID algorithm
+
+The P component produces an output that is propotional to the current error, CTE.
+It is derived by multiplying the error by a constant Kp, the proportional gain.
+the steering angle should be propotional to CTE, it makes a sharper turn when CTE is larger.
+We calculate the P component by multipling the proportional gain Kp with CTE divided by current car speed (Kp*(CTE/speed)). However, the CTE can be reduced to zero quickly with a large Kp value, but it also results in oscillation in the track.
+The I component is the sum of the instantaneous error over time and gives the accumulated offset that should have been corrected previously.
+This term should accelerates the movement of the car to intended trajectory and eliminates the residual steady-state error.
+We calculate this term by summing all CTE and multiply it with a constant Ki.
+
+The D is proportional to the rate of change of CTE.
+This component can compensate for a changing CTE, thus inhibit more rapid changes of CTE due to promotional term.
+
+####  how the final hyperparameters (P, I, D coefficients) was choosen
+
+Manually tuned the paprameters, with hit and trial for each,
+
+the final parameter was 0.3,0.0,1 for Kp , Ki and Kd
+
+#### future
+
+to try with twiddle for avoiding the shaking and smooth control.
+
 ## Dependencies
 
 * cmake >= 3.5

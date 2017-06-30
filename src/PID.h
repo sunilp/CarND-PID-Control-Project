@@ -18,6 +18,10 @@ public:
   double Ki;
   double Kd;
 
+
+  double prev_cte;
+  bool is_prev_cte_inited;
+
   /*
   * Constructor
   */
